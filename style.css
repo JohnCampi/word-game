@@ -5,15 +5,6 @@ body{
     margin-top: 3rem;
 }
 
-#myVideo {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1;
-    opacity: 90%;
-  }
 
 h1{
     color: rgb(0, 0, 0) ;
