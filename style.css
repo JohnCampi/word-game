@@ -112,3 +112,18 @@ p{
     margin-top: 2em;
     padding: 1em 1em;
   }
+
+  @media screen and (max-width: 500px) {
+   #btn2, #buttons{
+    display: inline;
+   }
+   div{
+    width: 50%;
+   }
+   #spanDiv{
+    width: 80%;
+   }
+   button{
+    height: 3em;
+   }
+  }
