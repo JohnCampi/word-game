@@ -113,17 +113,28 @@ p{
     padding: 1em 1em;
   }
 
-  @media screen and (max-width: 500px) {
+  @media (max-width: 500px) {
    #btn2, #buttons{
     display: inline;
    }
    div{
     width: 50%;
    }
-   #spanDiv{
-    width: 80%;
+   p{
+    margin-top: 0;
+   }
+   h1{
+    margin-bottom: .25em;
+   }
+   #spanDiv, #words{
+    width: 50%;
+    margin-top: 0;
    }
    button{
-    height: 3em;
+    height: 2em;
+   }
+   body{
+    overflow: hidden;
+    margin-top: 0;
    }
   }
