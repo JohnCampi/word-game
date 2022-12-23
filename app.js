@@ -7,7 +7,7 @@ const span = document.querySelector("span");
 const ul = document.querySelector("ul");
 const pScore = document.querySelector("p");
 const newGame = document.createElement("button");
-let score = 99;
+let score = 0;
 let letters = "";
 let list = [
   "hydrant",
