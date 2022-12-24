@@ -3,13 +3,18 @@ const clear = document.querySelector("#clear");
 const words = document.querySelector("#words");
 const enter = document.querySelector("#enter");
 const backspace = document.querySelector("#backspace");
-const span = document.querySelector("span");
 const ul = document.querySelector("ul");
 const pScore = document.querySelector("p");
 const newGame = document.createElement("button");
-let score = 0;
+
+const totalWords = 22;
+
+let wordsFound = 0;
 let letters = "";
-let list = [
+
+pScore.innerText = `Words Found: ${wordsFound}/${totalWords}`;
+
+const list = [
   "hydrant",
   "daddy",
   "dandy",
@@ -33,6 +38,7 @@ let list = [
   "tardy",
   "yard",
 ];
+const array = [];
 
 for (let btn of button) {
   btn.addEventListener("click", () => {
@@ -52,7 +58,23 @@ backspace.addEventListener("click", () => {
   words.innerText = words.innerText.slice(0, -1);
 });
 
+newGame.addEventListener("click", () => {
+  wordsFound = 0;
+  pScore.innerText = `Words Found: ${wordsFound}/${totalWords}`;
+  for (let btn of button) {
+    btn.disabled = false;
+  }
+  enter.disabled = false;
+  clear.disabled = false;
+  backspace.disabled = false;
+  words.innerText = "";
+  letters = "";
+  ul.innerHTML = "";
+  newGame.style.display = "none";
+});
+
 enter.addEventListener("click", () => {
+  const newLi = document.createElement("li");
   if (letters.includes("d") === false) {
     words.innerText = "Missing main letter!";
     letters = "";
@@ -60,7 +82,7 @@ enter.addEventListener("click", () => {
       words.innerText = "";
     }, 1000);
   } else if (letters.length < 4) {
-    words.innerText = "Not long enough!";
+    words.innerText = "Too short!";
     letters = "";
     setTimeout(() => {
       words.innerText = "";
@@ -71,15 +93,16 @@ enter.addEventListener("click", () => {
     setTimeout(() => {
       words.innerText = "";
     }, 1000);
-  } else {
-    const newLi = document.createElement("li");
-    score = score + letters.length;
-    pScore.innerText = `Score: ${score}`;
-    newLi.innerText = letters[0].toUpperCase() + letters.substring(1);
+  } else if (array.includes(words.innerText) === false) {
+    wordsFound += 1;
+    pScore.innerText = `Words Found: ${wordsFound}/${totalWords}`;
+    array.push(words.innerText);
+    newLi.innerText = words.innerText;
     ul.append(newLi);
     words.innerText = "";
     letters = "";
-    if (score === 103) {
+    console.log(array);
+    if (wordsFound === totalWords) {
       words.innerText = "All Words Found!";
       for (let btn of button) {
         btn.disabled = true;
@@ -91,20 +114,11 @@ enter.addEventListener("click", () => {
       newGame.classList.add("newGame");
       pScore.append(newGame);
     }
+  } else if (array.includes(words.innerText) === true) {
+    words.innerText = "Already Found!";
+    setTimeout(() => {
+      words.innerText = "";
+    }, 1000);
+    letters = "";
   }
-});
-
-newGame.addEventListener("click", () => {
-  score = 0;
-  pScore.innerText = `Score: ${score}`;
-  for (let btn of button) {
-    btn.disabled = false;
-  }
-  enter.disabled = false;
-  clear.disabled = false;
-  backspace.disabled = false;
-  words.innerText = "";
-  letters = "";
-  ul.innerHTML = "";
-  newGame.style.display = "none";
 });
