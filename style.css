@@ -18,6 +18,10 @@ body{
   border: .5px solid gray;
 }
 
+#mainLetter{
+  background-color: lightblue;
+}
+
 .li{
   margin: 2px;
   color: rgb(52, 52, 52);
