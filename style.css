@@ -1,131 +1,85 @@
 body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 10px solid blue; */
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-
-h1{
-    color: rgb(0, 0, 0) ;
+.liClass{
+  margin: 2px;
+  background-color: lightgray;
+  color: lightgray;
+  border: .5px solid gray;
 }
 
-p{
-    font-size: 20px;
-    margin-top: 0;
+.li{
+  margin: 2px;
+  color: rgb(52, 52, 52);
+  border: 1px solid gray;
 }
 
 #spanDiv{
-/*     background-color: rgb(153, 184, 199); */
-    /* border: 1px solid blue; */
-    /* border-radius: 100%; */
-    width: 30em;
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+  border: 1px solid black;
+  width: 25em;
+  height: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #words{
-    /* border: 1px solid blue; */
-    font-size: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:100%;
-    height:8rem;
-  }
-  
-  /* Button Div */
-  #buttons{
-    display:flex;
-    justify-content:space-around;
-    /* border: 1px solid blue; */
-    width:30em;
-    height:1.75rem;
-  }
+  font-size: 23px;
+}
 
-  button{
-    width: 100%;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(194, 194, 194);
-    border-radius: 0%;
-  }
+#buttons, #btn2{
+  /* border: 1px solid; */
+  width: 25em;
+  display: flex;
+  justify-content: space-around;
+}
 
-  /* Button 2 Div */
-  #btn2{
-    display:flex;
-    /* border: 1px solid black; */
-    width:30em;
-    height:1.75rem;
-  }
+button{
+  width: 100%;
+  height: 2em;
+  border-radius: 5%;
+  border: .5px solid lightgray;
+  background-color: rgb(251, 251, 251);
+  font-family: 'Courier New', Courier, monospace;
+}
 
-  button:hover{
-    background-color: rgb(76, 96, 108);
-    color: white;
-  }
+button:hover{
+  background-color: rgb(161, 161, 161);
+  color: white;
+}
 
-  #mainLetter{
-    background-color: rgb(8, 128, 180);
-  }
+ul{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 1px solid lightgray;
+  list-style: none;
+  margin: 0;
+  padding: 1em 0;
+  padding-bottom: 0;
+  width: 25em;
+  height: 10em;
+}
 
-  #mainLetter:hover{
-    background-color: rgb(16, 69, 92);
-  }
+#ulList{
+  margin: 0;
+}
+
+li{
+  display: flex;
+  justify-content: center;
+  height: 1.5em;
+}
 
 
-  #ulList{
-    /* background-color: rgb(153, 184, 199); */
-    /* border: 1px solid blue; */
-    width: 30em;
-    height: 10em;
-    display: flex;
-    flex-direction: column;
-    margin-left: 0;
-    padding-left: 0;
-  }
 
-  li{
-    list-style: none;
-    display: flex;
-    margin-left: 1em;
-    font-size: 30px;
-    color: rgb(0, 0, 0);
-  }
-
-  ul{
-    display: flex;
-    flex-direction: column;
-    padding: 0px;
-  }
-
-  .newGame{
-    background-color: rgb(255, 255, 255);
-    margin-top: 2em;
-    padding: 1em 1em;
-  }
-
-  @media (max-width: 500px) {
-   #btn2, #buttons{
-    display: inline;
-   }
-   div{
-    width: 50%;
-   }
-   p{
-    margin-top: 0;
-   }
-   h1{
-    margin-bottom: .25em;
-   }
-   #spanDiv, #words{
-    width: 50%;
-    margin-top: 0;
-   }
-   button{
-    height: 2em;
-   }
-   body{
-    overflow: hidden;
-    margin-top: 0;
-   }
-  }
