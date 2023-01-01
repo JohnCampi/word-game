@@ -1,89 +1,126 @@
+
+
 body{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* border: 10px solid blue; */
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
-.liClass{
-  margin: 2px;
-  background-color: lightgray;
-  color: lightgray;
-  border: .5px solid gray;
+#bodyDiv{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family:'Courier New', Courier, monospace;
 }
 
-#mainLetter{
-  background-color: lightblue;
+.mainLetterColor{
+    background-color: rgb(163, 217, 228);
 }
 
-.li{
-  margin: 2px;
-  color: rgb(52, 52, 52);
-  border: 1px solid gray;
+h1{
+    margin-top: 1.5em;
+    font-weight: 500;
+    font-size: 36px;
 }
 
-#spanDiv{
-  border: 1px solid black;
-  width: 25em;
-  height: 5em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+p{
+    margin-bottom: 2em;
+    margin-top: 0;
+    font-size: 18px;
+
 }
 
-#words{
-  font-size: 23px;
+#mainContainer{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 600px;
+    left: 12px;
+    top: 165px;
+    background: #FFFFFF;
+    border: 1px solid #C1C1C1;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
 }
 
-#buttons, #btn2{
-  /* border: 1px solid; */
-  width: 25em;
-  display: flex;
-  justify-content: space-around;
+#letterDiv{
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 10em; 
+    font-size: 28px;  
+    height: 5em;
+    width: 95%;
+}
+
+#letterButtonDiv, #enterButtonDiv{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    width: 95%;
 }
 
 button{
-  width: 100%;
-  height: 2em;
-  border-radius: 5%;
-  border: .5px solid lightgray;
-  background-color: rgb(251, 251, 251);
-  font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 500;
+    box-sizing: border-box;
+    width: 38px;
+    height: 37px;
+    left: 32px;
+    top: 372px;
+    background: #FFFFFF;
+    border: 0.5px solid #CECECE;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
 }
 
 button:hover{
-  background-color: rgb(161, 161, 161);
-  color: white;
+    background-color: rgb(221, 221, 221);
+}
+
+#enter, #deleteButton, #clear, #shuffle{
+    width: 70px;
+    margin-top: 1em;
+    font-size: 14px;
+}
+
+#wordDiv{
+    /* border: 1px solid blue; */
+    position: relative;
+    top: 30px;
+    width: 100%;
+    height: 50%;
 }
 
 ul{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  border: 1px solid lightgray;
-  list-style: none;
-  margin: 0;
-  padding: 1em 0;
-  padding-bottom: 0;
-  width: 25em;
-  height: 10em;
-}
-
-#ulList{
-  margin: 0;
-}
-
-li{
-  display: flex;
-  justify-content: center;
-  height: 1.5em;
-}
-
-
-
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding: 1em 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  li{
+    display: flex;
+    justify-content: center;
+    height: 1.5em;
+  }
