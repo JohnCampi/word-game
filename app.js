@@ -14,32 +14,40 @@ const noMainLetter = "Missing main letter";
 
 const letterArray = [];
 const foundWords = [];
-const mainLetter = "d";
+const minLength = 3;
 
 const list = [
-  "hydrant",
-  "daddy",
-  "dandy",
-  "darn",
-  "dart",
-  "data",
-  "drat",
-  "dray",
-  "dryad",
-  "dyad",
-  "hand",
-  "handy",
-  "hard",
-  "hardhat",
-  "hardy",
-  "hydra",
-  "nada",
-  "radar",
-  "rand",
-  "randy",
-  "tardy",
-  "yard",
+  "alb",
+  "all",
+  "bal",
+  "ban",
+  "boa",
+  "boo",
+  "lab",
+  "lob",
+  "loo",
+  "nab",
+  "nob",
+  "noo",
+  "oba",
+  "ono",
+  "ball",
+  "bola",
+  "boll",
+  "bolo",
+  "boon",
+  "loan",
+  "lobo",
+  "loon",
+  "nolo",
+  "obol",
+  "olla",
+  "aboon",
+  "llano",
+  "ballon",
+  "balloon",
 ];
+
 let letters = "";
 let totalWordsFound = 0;
 let totalWords = 0;
@@ -62,6 +70,13 @@ const disable = () => {
   }
 };
 
+const letterDisable = () => {
+  if (totalWordsFound === list.length) {
+    div.innerHTML = "";
+    letterDisplay(true);
+  }
+};
+
 const err = (e) => {
   letterDiv.innerText = `${e}`;
 };
@@ -73,23 +88,24 @@ const clearDelay = (delay) => {
   }, delay);
 };
 
-const letterShuffle = () => {
+const addLetters = () => {
   for (let words of list) {
     for (let i = 0; i < words.length; i++) {
       if (!letterArray.includes(words[i])) {
         letterArray.push(words[i]);
       }
     }
-    letterArray.sort(() => Math.floor(Math.random() * 2) - 1);
   }
+};
+
+const letterShuffle = () => {
+  div.innerHTML = "";
+  letterArray.sort(() => Math.floor(Math.random() * 2) - 1);
 };
 
 const letterDisplay = (hide) => {
   letterArray.forEach((element) => {
-    const idOfMainLetter = letterArray.indexOf(mainLetter);
-    const indexOfMain = letterArray.at(idOfMainLetter);
     const button = document.createElement("button");
-    // console.log(indexOfMain);
     div.append(button);
     button.innerText = element;
     button.addEventListener("click", () => {
@@ -100,29 +116,26 @@ const letterDisplay = (hide) => {
   });
 };
 
-if (totalWordsFound === totalWords) {
-  console.log(totalWords);
-}
+const addLi = () => {
+  foundWords.push(letterDiv.innerText);
+  const li = document.createElement("li");
+  li.innerText = letterDiv.innerText;
+  ul.appendChild(li);
+};
 
 const isValidWord = () => {
   if (letterDiv.innerText.length === 0) {
     letterDiv.innerText = "";
-  } else if (letterDiv.innerText.length < 4) {
+  } else if (letterDiv.innerText.length < minLength) {
     err(short);
-    clearDelay(1000);
-  } else if (letterDiv.innerText.includes(mainLetter) === false) {
-    err(noMainLetter);
     clearDelay(1000);
   } else if (!list.includes(letters)) {
     err(notWord);
     clearDelay(1000);
   } else if (foundWords.includes(letterDiv.innerText) !== true) {
     score();
-    foundWords.push(letterDiv.innerText);
-    const newLi = document.createElement("li");
-    newLi.innerText = letterDiv.innerText;
-    ul.append(newLi);
-    letterDiv.innerText = "";
+    addLi();
+    clearDelay(0000);
   } else {
     err(double);
     clearDelay(1000);
@@ -130,21 +143,14 @@ const isValidWord = () => {
 };
 
 enter.addEventListener("click", () => {
-  clearDelay(1000);
   isValidWord();
   disable();
-  if (totalWordsFound === list.length) {
-    div.innerHTML = "";
-    letterDisplay(true);
-  }
-  console.log(totalWords);
-  console.log(totalWordsFound);
+  letterDisable();
 });
 
 shuffleBtn.addEventListener("click", () => {
-  div.innerHTML = "";
   letterShuffle();
-  letterDisplay(false, "blue");
+  letterDisplay(false);
 });
 
 deleteButton.addEventListener("click", () => {
@@ -156,5 +162,6 @@ clear.addEventListener("click", () => {
   clearDelay();
 });
 
+addLetters();
 letterShuffle();
-letterDisplay(false, "mainLetterColor");
+letterDisplay(false);
