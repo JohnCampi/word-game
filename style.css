@@ -13,8 +13,9 @@ body{
 #bodyDiv{
     box-sizing: border-box;
     margin: 0;
+    margin-top: 2em;
     padding: 0;
-    height: auto;
+    height: 85vh;
     width: auto;
     display: flex;
     flex-direction: column;
